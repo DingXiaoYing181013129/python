@@ -153,7 +153,13 @@ def do_search_1():
 ```
 
 ## Web App动作描述
-* 首页页面设有7个跳转的按钮，点击即可跳转到下一级的子页面
+* 首页页面设有7个跳转的按钮，点击即可跳转到下一级的子页面。 例子：
+```
+<form method="POST" action="/要跳转的下一级子页面">
+    <p><input name="在app.py中用函数定义的the_region的名称" value='按钮名称' type='SUBMIT'></p>
+</form>
+```
 * 每个子页面都有一个“首页”按钮，点击即可返回首页
 * “患病率”页面里，有一个“确定”按钮，点击可进入搜索世界各地区各年的抑郁症患病率
 * 使用 " the_region = request.form["×××"] " 实现页面与页面之间的跳转
+* 返回历史上一页按钮的代码：  <input type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回">
