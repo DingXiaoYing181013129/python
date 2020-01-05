@@ -45,14 +45,14 @@
 * 在pycharm安装了flask、pandas、pyecharts、cufflinks、plotly的模块包，并用import××× 导入使用
 * 用"df_×× = pd.read_csv('data/表格名字.csv', dtype=××,encoding='××') ”来导入csv表格
 * 实现首页面与子页面的数据嵌套，在子页面中实现交互图与交互数据的呈现
-* 运用了推导式等
+* 运用了推导式等。例子：
 
 ```
 x_z = [int(x) for x in df0.columns.values[1:]]
 x_z_zx = [str(x) for x in x_z]
 ```
 
-* 运用了for循环和条件判断，可在世界各国患病率的表格上进行搜索指定的地区
+* 运用了for循环和条件判断。例子：两个页面的交互运行代码：可在世界各国患病率的表格上搜索指定的地区
 ```
 @app.route('/form', methods=['POST'])
 def view_the_log() -> 'html':
@@ -79,7 +79,7 @@ def view_the_log() -> 'html':
 def do_search() -> 'html':
 
     search = request.form['search']
-    with open('data/children-per-woman.csv', encoding="unicode_escape") as data:
+    with open('data/number-with-depression-by-country-hbl.csv', encoding="unicode_escape") as data:
         ignore = data.readline()
         flights = {}
 
@@ -99,14 +99,58 @@ def do_search() -> 'html':
 
     titles = ('地区', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017')
     return render_template('viewlog.html',
-                           the_title='View Log',
+                           the_title='search result',
                            the_row_titles=titles,
                            the_data=contents,
                            )
 ```
 
+* 若将其连接到“患病率页面”并部署到pythonanywhere，代码则为：
+```
+@app.route('/world_hbl',methods=['POST'])
+def yi_yu_select_2():
+    with open("世界抑郁症患病率.html", encoding="utf8", mode="r") as f2:
+        plot_all_2 = "".join(f2.readlines())
+    the_region = request.form["the_region_selected_2"]
+    print(the_region)
+    title = '世界抑郁症情况及其相关因素研究'
+    contents = []
+    with open('/home/huangyuhui/mysite/data/number-with-depression-by-country-hbl.csv', encoding='utf-8') as data1:
+        ignore = data1.readline()
+        countries = {}
+
+        for line in data1:
+            contents.append([])
+            for item in line.strip().split(','):
+                contents[-1].append(item)
+
+    titles = ('地区', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017')
+    return render_template('world_hbl.html',
+                            the_plot_all_2 = plot_all_2,
+                            the_title = title,
+                            the_row_titles=titles,
+                            the_data=contents,
+                            )
+
+
+@app.route('/search', methods=['POST'])
+def do_search_1():
+    search = request.form['place']
+    with open('/home/huangyuhui/mysite/data/number-with-depression-by-country-hbl.csv', encoding='utf-8') as data2:
+        ignore = data2.readline()
+        countries = {}
+        for line in data2:
+            k, v, d, e, r, t, y, b, f, c, n = line.strip().split(',')
+            countries[k] = k, v, d, e, r, t, y, b, f, c, n
+
+    if search in countries.keys():
+        contents = [countries[search]]
+    else:
+        contents = ['您搜索的结果不存在！！']
+```
+
 ## Web App动作描述
-* 首页页面设有7个跳转的按钮，点击即可跳转到下一级子页面
-* 每个子页面都有一个“首页”按钮，返回首页
-* “患病率”页面里，有“确定”按钮，点击可进入搜索各地区各年的抑郁症患病率
-* 使用“the_region”实现页面与页面之间的跳转
+* 首页页面设有7个跳转的按钮，点击即可跳转到下一级的子页面
+* 每个子页面都有一个“首页”按钮，点击即可返回首页
+* “患病率”页面里，有一个“确定”按钮，点击可进入搜索世界各地区各年的抑郁症患病率
+* 使用 " the_region = request.form["×××"] " 实现页面与页面之间的跳转
