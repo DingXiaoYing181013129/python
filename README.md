@@ -1,4 +1,11 @@
 # python期末项目文档
+
+## [github文档]()（templates、static、app.py、数据文档）
+* [data]()
+* [templates]()
+* [static]()
+* [app.py]()
+
 # 本次期末项目一共有9个url
 
 ### 前端url描述
@@ -39,6 +46,12 @@
 * 用"df_×× = pd.read_csv('data/表格名字.csv', dtype=××,encoding='××') ”来导入csv表格
 * 实现首页面与子页面的数据嵌套，在子页面中实现交互图与交互数据的呈现
 * 运用了推导式等
+
+```
+x_z = [int(x) for x in df0.columns.values[1:]]
+x_z_zx = [str(x) for x in x_z]
+```
+
 * 运用了for循环和条件判断，可在世界各国患病率的表格上进行搜索指定的地区
 ```
 @app.route('/form', methods=['POST'])
