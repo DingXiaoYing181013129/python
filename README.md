@@ -162,4 +162,11 @@ def do_search_1():
 * 每个子页面都有一个“首页”按钮，点击即可返回首页
 * “患病率”页面里，有一个“确定”按钮，点击可进入搜索世界各地区各年的抑郁症患病率
 * 使用 " the_region = request.form["×××"] " 实现页面与页面之间的跳转
-* 返回历史上一页按钮的代码：  <input type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回">
+* 返回历史上一页按钮的代码：
+```
+<input type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回">
+```
+
+## log日志系统
+* 记录搜索结果 [点击查看](http://huangyuhui.pythonanywhere.com/viewlog)
+![](python/log.png)
