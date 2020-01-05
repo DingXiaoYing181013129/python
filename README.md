@@ -169,4 +169,4 @@ def do_search_1():
 
 ## log日志系统
 * 记录搜索结果 [点击查看](http://huangyuhui.pythonanywhere.com/viewlog)
-![](python/log.png)
+ ![image](https://github.com/DingXiaoYing181013129/python/blob/master/log.png)
