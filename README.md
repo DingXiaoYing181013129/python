@@ -1,10 +1,10 @@
 # python期末项目文档
 
-## [github文档]()（templates、static、app.py、数据文档）
-* [data]()
-* [templates]()
-* [static]()
-* [app.py]()
+## [github文档](https://github.com/DingXiaoYing181013129/python)（templates、static、app.py、数据文档）
+* [data](https://github.com/DingXiaoYing181013129/python/tree/master/data)
+* [templates](https://github.com/DingXiaoYing181013129/python/tree/master/templates)
+* [static](https://github.com/DingXiaoYing181013129/python/tree/master/static)
+* [app.py](https://github.com/DingXiaoYing181013129/python/blob/master/app.py)
 
 ## 本次期末项目一共有9个url
 
@@ -18,7 +18,7 @@
 * 第6个url：由“患病率与失业率”按钮跳转而来。此页面是折线图的交互可视化，主要显示世界抑郁症患病率、世界各国失业率前10的国家。在其上方设有一个按钮，用于返回首页。
 * 第7个url：由“每个妇女生育孩子数”按钮跳转而来。此页面是地图交互可视化，在地图上方设有一个按钮，用于返回首页
 * 第8个url：由“世界人均GDP情况”按钮跳转而来。此页面是地图交互可视化，在地图上方设有一个按钮，用于返回首页
-* 第9个url：由“主题观点总结”按钮跳转而来，主要是项目结论与总结
+* 第9个url：由“主题观点总结”按钮跳转而来，主要是项目结论与观点总结
 
 ## pythonanywhere
 * [项目部署到云的Pythonanywhere链接](http://huangyuhui.pythonanywhere.com/) 
@@ -36,14 +36,17 @@
 * 7、world_man_woman.html：使用def do_search_3()，男性女性患者人数模板档
 * 8、world_number.html ：def yi_yu_select_1()，总人数模板档
 * 9、world_unemployment.html：def yi_yu_select_4()，失业率模板档
-* 10、summary.html：def yi_yu_select_9()
+* 10、summary.html：def yi_yu_select_9()，观点总结模板档
 
 
 
 ## Python档描述
 #### app.py
-* 在pycharm安装了flask、pandas、pyecharts、cufflinks、plotly的模块包，并用import××× 导入使用
-* 用"df_×× = pd.read_csv('data/表格名字.csv', dtype=××,encoding='××') ”来导入csv表格
+* 在pycharm安装了flask、pandas、pyecharts、cufflinks、plotly等等的模块包，并用 "import×××" 导入使用
+* 用"df_×× = pd.read_csv('data/表格名字.csv', dtype=××,encoding='××') ”导入csv表格 注：此为本地使用
+  若在pythonanywhere部署使用，则为df_×× = pd.read_csv('/home/huangyuhui/mysite/data/表格名字.csv', dtype=××, encoding = '××')
+* 运用函数实现不同的功能
+* 使用 "return render_template"实现python文档与html文档的数据交互
 * 实现首页面与子页面的数据嵌套，在子页面中实现交互图与交互数据的呈现
 * 运用了推导式等。例子：
 
@@ -52,7 +55,7 @@ x_z = [int(x) for x in df0.columns.values[1:]]
 x_z_zx = [str(x) for x in x_z]
 ```
 
-* 运用了for循环和条件判断。例子：两个页面的交互运行代码：可在世界各国患病率的表格上搜索指定的地区
+* 运用了for循环和条件判断（if  else）。例子：两个页面的之间的交互 运行代码：可在世界各国患病率的表格上搜索指定的地区
 ```
 @app.route('/form', methods=['POST'])
 def view_the_log() -> 'html':
