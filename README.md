@@ -6,7 +6,7 @@
 * [static]()
 * [app.py]()
 
-# 本次期末项目一共有9个url
+## 本次期末项目一共有9个url
 
 ### 前端url描述
 * 数据交互：每个页面均有相应的可视化图与文字简介
@@ -20,12 +20,12 @@
 * 第8个url：由“世界人均GDP情况”按钮跳转而来。此页面是地图交互可视化，在地图上方设有一个按钮，用于返回首页
 * 第9个url：由“主题观点总结”按钮跳转而来，主要是项目结论与总结
 
-### pythonanywhere
+## pythonanywhere
 * [项目部署到云的Pythonanywhere链接](http://huangyuhui.pythonanywhere.com/) 
 
 
-### HTML文档描述
-###### HTML文档放在templates文件夹中。分别为：base.html 、entry.html 、viewlog.html 、world_gdp.html 、world_give_birth.html 、world_hbl.html 、world_man_woman.html 、world_number.html 、world_unemployment.html 、summary.html
+## HTML文档描述
+#### HTML文档放在templates文件夹中。分别为：base.html 、entry.html 、viewlog.html 、world_gdp.html 、world_give_birth.html 、world_hbl.html 、world_man_woman.html 、world_number.html 、world_unemployment.html 、summary.html
 
 * 1、base.html：基本模板档
 * 2、entry.html ：首页模板档
@@ -40,8 +40,8 @@
 
 
 
-### Python档描述
-###### app.py
+## Python档描述
+#### app.py
 * 在pycharm安装了flask、pandas、pyecharts、cufflinks、plotly的模块包，并用import××× 导入使用
 * 用"df_×× = pd.read_csv('data/表格名字.csv', dtype=××,encoding='××') ”来导入csv表格
 * 实现首页面与子页面的数据嵌套，在子页面中实现交互图与交互数据的呈现
@@ -105,7 +105,7 @@ def do_search() -> 'html':
                            )
 ```
 
-### Web App动作描述
+## Web App动作描述
 * 首页页面设有7个跳转的按钮，点击即可跳转到下一级子页面
 * 每个子页面都有一个“首页”按钮，返回首页
 * “患病率”页面里，有“确定”按钮，点击可进入搜索各地区各年的抑郁症患病率
